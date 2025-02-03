@@ -1,12 +1,13 @@
-import { NavLink } from 'react-router-dom';
 import s from './NotFoundPage.module.css';
+import Layout from '../../components/Layout/Layout';
+import { NavLink } from 'react-router-dom';
 
 const NotFoundPage = () => {
 	return (
-		<>
-			<NavLink to="/">Home</NavLink>
+		<Layout>
+			<NavLink to="/">Back to home page</NavLink>
 			<h1>NotFoundPage</h1>
-		</>
+		</Layout>
 	);
 };
 

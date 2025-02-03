@@ -1,13 +1,14 @@
 import s from './BestsellersPage.module.css';
+import Layout from '../../components/Layout/Layout';
 
 import { NavLink } from 'react-router-dom';
 
 const BestsellersPage = () => {
 	return (
-		<>
-			<NavLink to="/">Home</NavLink>
+		<Layout>
+			<NavLink to="/">Back to home page</NavLink>
 			<h1>BestsellersPage</h1>
-		</>
+		</Layout>
 	);
 };
 
