@@ -12,12 +12,6 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      - name: Set up Git
-        uses: actions/setup-git@v2
-        with:
-          git-user-name: 'github-actions'
-          git-user-email: 'github-actions@github.com'
-
       - name: Fetch all branches
         run: git fetch --all
 
