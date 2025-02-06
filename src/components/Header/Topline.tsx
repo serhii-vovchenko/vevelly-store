@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import downIcon from '../../assets/img/down.svg';
 import { Container } from '../Container/Container';
+import Icon from '../Icon';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
 import s from './Topline.module.css';
 
@@ -35,7 +35,7 @@ export const Topline: React.FC<Props> = ({ className }) => {
 						</div>
 						<div className={s.topline__contacts}>
 							0-800-603-897
-							<img src={downIcon} alt="dropdown" />
+							<Icon name="down" width={18} height={9} />
 						</div>
 					</div>
 				</div>

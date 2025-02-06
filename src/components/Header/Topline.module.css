@@ -20,8 +20,12 @@
 	display: flex;
 	gap: 20px;
 }
-.topline__contacts img {
-	width: 18px;
-	height: 9px;
+.topline__contacts {
+	font-family: 'Krub', serif;
+	font-size: 18px;
+	line-height: 23.4px;
+	color: #0d0c0c;
+}
+.topline__contacts svg {
 	margin-left: 10px;
 }
