@@ -1,0 +1,27 @@
+.topline {
+	background-color: #d6e8ee;
+	height: 60px;
+	display: flex;
+	align-items: center;
+}
+
+.topline__wrap,
+.topline__right,
+.topline__contacts {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.topline__right {
+	gap: 20px;
+}
+.topline__list {
+	display: flex;
+	gap: 20px;
+}
+.topline__contacts img {
+	width: 18px;
+	height: 9px;
+	margin-left: 10px;
+}

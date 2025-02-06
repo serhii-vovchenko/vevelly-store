@@ -1,7 +1,13 @@
-import s from './Header.module.css';
+import { Container } from '../Container/Container';
+import { Topline } from './Topline';
 
 const Header = () => {
-	return <header>Header</header>;
+	return (
+		<header>
+				<Topline />
+				Header
+		</header>
+	);
 };
 
 export default Header;
