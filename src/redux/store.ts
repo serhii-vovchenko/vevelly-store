@@ -6,6 +6,7 @@ import { newProductsReducer } from './newProducts/slice';
 import { orderReducer } from './order/slice';
 import { productCardReducer } from './productCard/slice';
 import { productsReducer } from './products/slice';
+import { searchReducer } from './search/slice';
 
 export const store = configureStore({
 	reducer: {
@@ -16,6 +17,7 @@ export const store = configureStore({
 		products: productsReducer,
 		productCard: productCardReducer,
 		language: languageReducer,
+		search: searchReducer,
 	},
 });
 

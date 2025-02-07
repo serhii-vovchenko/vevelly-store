@@ -4,7 +4,6 @@ import { NavLink } from 'react-router-dom';
 import { Container } from '../Container/Container';
 import Icon from '../Icon';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
-import s from './Topline.module.css';
 
 interface Props {
 	className?: string;
@@ -12,30 +11,28 @@ interface Props {
 
 export const Topline: React.FC<Props> = ({ className }) => {
 	return (
-		<div className={clsx(s.topline, className)}>
+		<div className={clsx('flex items-center h-[60px] bg-[#d6e8ee]', className)}>
 			<Container>
-				<div className={s.topline__wrap}>
-					<div className={s.topline__nav}>
-						<ul className={s.topline__list}>
-							<li className={s.topline__item}>
-								<NavLink to="#" className={s.topline__link}>
+				<div className="flex items-center justify-between">
+					<div>
+						<ul className="flex gap-5">
+							<li>
+								<NavLink className="border-b-[1px] border-[#018ABE]" to="#">
 									Payment and delivery
 								</NavLink>
 							</li>
-							<li className={s.topline__item}>
-								<NavLink to="#" className={s.topline__link}>
-									Exchange and return
-								</NavLink>
+							<li>
+								<NavLink to="#">Exchange and return</NavLink>
 							</li>
 						</ul>
 					</div>
-					<div className={s.topline__right}>
-						<div className={s.topline__lang}>
+					<div className="flex items-center justify-between gap-5">
+						<div>
 							<LanguageSwitcher />
 						</div>
-						<div className={s.topline__contacts}>
+						<div className="flex items-center justify-between text-lg leading-6 text-[#0d0c0c] ">
 							0-800-603-897
-							<Icon name="down" width={18} height={9} />
+							<Icon className="ml-[10px]" name="down" width={18} height={9} />
 						</div>
 					</div>
 				</div>
