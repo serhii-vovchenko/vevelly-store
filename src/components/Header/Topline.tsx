@@ -1,15 +1,21 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container } from '../Container/Container';
 import Icon from '../Icon';
 import LanguageSwitcher from '../LanguageSwitcher/LanguageSwitcher';
+import { Callback } from './Callback';
 
 interface Props {
 	className?: string;
 }
 
 export const Topline: React.FC<Props> = ({ className }) => {
+	const [isOpenCall, setIsOpenCall] = useState(false);
+
+	const handlerCall = () => {
+		setIsOpenCall(!isOpenCall);
+	};
 	return (
 		<div className={clsx('flex items-center h-[60px] bg-[#d6e8ee]', className)}>
 			<Container>
@@ -30,9 +36,21 @@ export const Topline: React.FC<Props> = ({ className }) => {
 						<div>
 							<LanguageSwitcher />
 						</div>
-						<div className="flex items-center justify-between text-lg leading-6 text-[#0d0c0c] ">
+						<div className="flex items-center justify-between text-lg leading-6 text-[#0d0c0c] relative">
 							0-800-603-897
-							<Icon className="ml-[10px]" name="down" width={18} height={9} />
+							<span
+								onClick={() => {
+									handlerCall();
+								}}
+							>
+								<Icon
+									className={clsx(isOpenCall && 'rotate-180', 'ml-[10px]')}
+									name="down"
+									width={18}
+									height={9}
+								/>
+							</span>
+							{isOpenCall && <Callback />}
 						</div>
 					</div>
 				</div>

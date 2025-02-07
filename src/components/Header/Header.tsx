@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useSearchStore } from '../../redux/search/useSearchStore';
 import { Container } from '../Container/Container';
 import Icon from '../Icon';
+import { Menu } from '../Menu/Menu';
 import { Search } from './Search';
 import { Topline } from './Topline';
 
@@ -35,6 +36,11 @@ const Header = () => {
 						<Icon name="basket" color="none" badge={5} />
 						<Icon name="person" color="none" />
 					</div>
+				</div>
+			</Container>
+			<Container>
+				<div className="w-full border border-[#D6E8EE]">
+					<Menu />
 				</div>
 			</Container>
 		</header>
