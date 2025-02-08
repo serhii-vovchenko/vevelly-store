@@ -1,6 +1,7 @@
-import s from './HomePage.module.css';
-import Layout from '../../components/Layout/Layout';
 import { NavLink } from 'react-router-dom';
+import Layout from '../../components/Layout/Layout';
+import { Subscribe } from '../../components/Subscribe/Subscribe';
+import s from './HomePage.module.css';
 
 const HomePage = () => {
 	return (
@@ -22,6 +23,7 @@ const HomePage = () => {
 					<NavLink to="/order">Order</NavLink>
 				</li>
 			</ul>
+			<Subscribe />
 		</Layout>
 	);
 };
