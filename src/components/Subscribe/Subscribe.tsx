@@ -7,7 +7,7 @@ interface Props {
 
 export const Subscribe: React.FC<Props> = ({ className }) => {
 	return (
-		<div className={clsx('my-30', className)}>
+		<div className={clsx('pb-30', className)}>
 			<div className="flex items-center justify-evenly py-10 mx-32 gap-5">
 				<div className="subscribe text-center text-[32px] uppercase font-medium leading-[42px] text-[#0D0C0C]">
 					we are giving 10% discount for subscription
