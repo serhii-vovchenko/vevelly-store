@@ -14,12 +14,12 @@ const Icon: React.FC<IconProps> = ({
 	badge,
 	width = 24,
 	height = 24,
-	color = 'black',
+	color = '#0D0C0C',
 	className,
 }) => (
 	<div className="relative inline-block">
 		<svg className={className} width={width} height={height} fill={color}>
-			<use href={`/icons.svg#${name}`} />
+			<use href={`/icons_spite.svg#${name}`} />
 		</svg>
 
 		{badge && badge > 0 && (

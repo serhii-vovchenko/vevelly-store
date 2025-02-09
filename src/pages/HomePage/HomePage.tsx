@@ -1,8 +1,10 @@
+
 import { NavLink } from 'react-router-dom';
-import { About } from '../../components/About/About';
+import { About } from '../../components/Home/About/About';
+import { Subscribe } from '../../components/Home/Subscribe/Subscribe';
 import Layout from '../../components/Layout/Layout';
-import { Subscribe } from '../../components/Subscribe/Subscribe';
 import s from './HomePage.module.css';
+import { Watch } from '../../components/Home/Watch/Watch'
 
 const HomePage = () => {
 	return (
@@ -24,6 +26,7 @@ const HomePage = () => {
 					<NavLink to="/order">Order</NavLink>
 				</li>
 			</ul>
+			<Watch />
 			<About />
 			<Subscribe />
 		</Layout>
