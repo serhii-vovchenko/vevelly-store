@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'modern-normalize';
+
 html {
 	scroll-behavior: smooth;
 }
@@ -71,6 +72,7 @@ img {
 	}
 }
 
-.header__logo {
+.header__logo,
+.footer_logo {
 	font-family: 'Libre Caslon Display', serif;
 }
