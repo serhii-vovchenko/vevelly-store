@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { About } from '../../components/About/About';
 import Layout from '../../components/Layout/Layout';
 import { Subscribe } from '../../components/Subscribe/Subscribe';
 import s from './HomePage.module.css';
@@ -23,6 +24,7 @@ const HomePage = () => {
 					<NavLink to="/order">Order</NavLink>
 				</li>
 			</ul>
+			<About />
 			<Subscribe />
 		</Layout>
 	);
