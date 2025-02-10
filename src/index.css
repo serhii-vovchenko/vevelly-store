@@ -73,8 +73,26 @@ img {
 }
 
 .header__logo,
+.slider_text,
+.full_promo_text,
+.gift_title,
+.watch .title,
 .about_title,
 .subscribe,
 .footer_logo {
 	font-family: 'Libre Caslon Display', serif;
+}
+
+.slick-dots li button:before {
+	width: 18px !important;
+	height: 18px !important;
+	font-size: normal !important;
+	color: #c0c0c0 !important;
+}
+
+.slick-dots li.slick-active button:before {
+	color: #1870a6 !important;
+}
+.slick-track {
+	min-height: 100vh !important;
 }

@@ -1,29 +1,26 @@
 import { NavLink } from 'react-router-dom';
-import { About } from '../../components/About/About';
+import { About } from '../../components/Home/About';
+import { Bestsellers } from '../../components/Home/Bestsellers';
+import { FullPromo } from '../../components/Home/FullPromo';
+import { Gift } from '../../components/Home/Gift';
+import { NewProducts } from '../../components/Home/New';
+import { Subscribe } from '../../components/Home/Subscribe';
+import { Watch } from '../../components/Home/Watch';
 import Layout from '../../components/Layout/Layout';
-import { Subscribe } from '../../components/Subscribe/Subscribe';
 import s from './HomePage.module.css';
+
+import { Baner } from '../../seed/seed'
+import { MySlider } from '../../components/Home/Slider'
 
 const HomePage = () => {
 	return (
 		<Layout>
-			<ul className={s.wrapper}>
-				<li>
-					<NavLink to="/bestsellers">Bestsellers</NavLink>
-				</li>
-				<li>
-					<NavLink to="/new-products">New Product</NavLink>
-				</li>
-				<li>
-					<NavLink to="/products">Products</NavLink>
-				</li>
-				<li>
-					<NavLink to="/products/product">Product Card</NavLink>
-				</li>
-				<li>
-					<NavLink to="/order">Order</NavLink>
-				</li>
-			</ul>
+			<MySlider banner={Baner}	/>
+			<NewProducts />
+			<FullPromo />
+			<Bestsellers />
+			<Gift />
+			<Watch />
 			<About />
 			<Subscribe />
 		</Layout>
