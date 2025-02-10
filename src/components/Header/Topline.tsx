@@ -17,6 +17,7 @@ export const Topline: React.FC<Props> = ({ className }) => {
 		setIsOpenCall(!isOpenCall);
 	};
 	return (
+		<>
 		<div className={clsx('flex items-center h-[60px] bg-[#d6e8ee]', className)}>
 			<Container>
 				<div className="flex items-center justify-between">
@@ -55,6 +56,27 @@ export const Topline: React.FC<Props> = ({ className }) => {
 					</div>
 				</div>
 			</Container>
+		
 		</div>
+			<Container>
+			<ul className="flex items-center justify-between gap-5">
+				<li>
+					<NavLink to="/bestsellers">Bestsellers</NavLink>
+				</li>
+				<li>
+					<NavLink to="/new-products">New Product</NavLink>
+				</li>
+				<li>
+					<NavLink to="/products">Products</NavLink>
+				</li>
+				<li>
+					<NavLink to="/products/product">Product Card</NavLink>
+				</li>
+				<li>
+					<NavLink to="/order">Order</NavLink>
+				</li>
+			</ul>
+		</Container>
+		</>
 	);
 };

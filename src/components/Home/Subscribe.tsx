@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import React from 'react';
-import { Container } from '../../Container/Container';
+import { Container } from '../Container/Container';
 
 interface Props {
 	className?: string;
@@ -10,11 +10,11 @@ export const Subscribe: React.FC<Props> = ({ className }) => {
 	return (
 		<div className={clsx('mb-30', className)}>
 			<Container>
-				<div className="flex items-center justify-evenly py-10  gap-5">
-					<div className="subscribe text-center text-[32px] uppercase font-medium leading-[42px] text-[#0D0C0C]">
+				<div className="flex items-center justify-evenly py-10 gap-5">
+					<div className="w-1/2 subscribe text-center text-[32px] uppercase font-medium leading-[42px] text-[#0D0C0C]">
 						we are giving 10% discount for subscription
 					</div>
-					<div className="flex flex-col items-center">
+					<div className="flex flex-col items-center w-[470px] px-auto">
 						<form action="#">
 							<input
 								type="email"
