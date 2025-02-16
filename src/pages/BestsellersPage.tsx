@@ -1,5 +1,4 @@
-import s from './BestsellersPage.module.css';
-import Layout from '../../components/Layout/Layout';
+import Layout from '../components/Layout/Layout';
 
 import { NavLink } from 'react-router-dom';
 
