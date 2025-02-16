@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Breadcrumbs } from '../components/Breadcrumbs';
+import Breadcrumbs from '../components/Breadcrumbs';
 import { CardItems } from '../components/CardItems';
 import { Container } from '../components/Container/Container';
 import Icon from '../components/Icon';
@@ -13,7 +13,7 @@ const BestsellersPage = () => {
 	return (
 		<Layout>
 			<Container>
-				<Breadcrumbs currentPage="BestSeller" />
+				<Breadcrumbs className="mb-11" />
 			</Container>
 			<Container>
 				<h1>BestsellersPage</h1>

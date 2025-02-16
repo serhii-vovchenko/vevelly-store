@@ -1,11 +1,11 @@
 import { createBrowserRouter } from 'react-router-dom';
-import HomePage from '../pages/HomePage/HomePage';
-import NotFoundPage from '../pages/NotFoundPage/NotFoundPage';
-import NewProductsPage from '../pages/NewProductsPage/NewProductsPage';
-import OrderPage from '../pages/OrderPage/OrderPage';
-import BestsellersPage from '../pages/BestsellersPage/BestsellersPage';
-import ProductCardPage from '../pages/ProductCardPage/ProductCardPage';
-import ProductsPage from '../pages/ProductsPage/ProductsPage';
+import HomePage from '../pages/HomePage';
+import NotFoundPage from '../pages/NotFoundPage';
+import NewProductsPage from '../pages/NewProductsPage';
+import OrderPage from '../pages/OrderPage';
+import BestsellersPage from '../pages/BestsellersPage';
+import ProductCardPage from '../pages/ProductCardPage';
+import ProductsPage from '../pages/ProductsPage';
 
 const router = createBrowserRouter(
 	[
@@ -24,12 +24,10 @@ const router = createBrowserRouter(
 		{
 			path: '/products',
 			element: <ProductsPage />,
-			children: [
-				{
-					path: '*',
-					element: <ProductCardPage />,
-				},
-			],
+		},
+		{
+			path: '/products/:productId',
+			element: <ProductCardPage />,
 		},
 		{
 			path: '/order',

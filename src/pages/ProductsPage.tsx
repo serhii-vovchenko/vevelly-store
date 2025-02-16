@@ -1,5 +1,4 @@
-import Layout from '../../components/Layout/Layout';
-import s from './ProductsPage.module.css';
+import Layout from '../components/Layout/Layout';
 
 import { NavLink } from 'react-router-dom';
 
