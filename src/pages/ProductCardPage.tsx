@@ -5,11 +5,16 @@ import ProductGallery from '../components/ProductCard/ProductGallery';
 import { Container } from '../components/Container/Container';
 import Breadcrumbs from '../components/Breadcrumbs';
 import ProductInfo from '../components/ProductCard/ProductInfo';
+import AboutProduct from '../components/ProductCard/AboutProduct/AboutProduct';
+
+import { cards } from '../seed/seed';
+import { HomeBlock } from '../components/Home/HomeBlock';
 
 const product = {
 	id: 12211,
 	path: 'golden-pearl',
 	img: '/watch1.png',
+	gallery: ['/watch1.png', '/watch2.png', '/watch3.png', '/watch4.png'],
 	title: 'Golden Pearl',
 	desc: 'White gold ring with a pearl.',
 	sku: 560278,
@@ -35,11 +40,14 @@ const ProductCardPage = () => {
 			<Container>
 				<Breadcrumbs className="mb-11" />
 				<div className="flex gap-10 mb-[120px] ">
-					<ProductGallery />
+					<ProductGallery gallery={product.gallery} />
 					<ProductInfo product={product} />
 				</div>
-				<div className=" mb-[120px] bg-gray-50 h-40"></div>
-				<div className="mb-[150px] bg-gray-50 h-40"></div>
+				<AboutProduct />
+
+				<div className="mb-[150px]">
+					<HomeBlock title="You may also like" cards={cards} />
+				</div>
 			</Container>
 		</Layout>
 	);

@@ -1,5 +1,5 @@
-@import 'tailwindcss';
 @import 'modern-normalize';
+@import 'tailwindcss';
 
 html {
 	scroll-behavior: smooth;
@@ -101,7 +101,18 @@ h1 {
 	color: #1870a6 !important;
 }
 .slick-track {
-	min-height: 100vh !important;
+	min-height: 440px;
+}
+
+@layer utilities {
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 .filter h3 {

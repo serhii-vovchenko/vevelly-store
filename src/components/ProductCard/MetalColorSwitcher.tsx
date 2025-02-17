@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import arrowDown from '../../assets/arrow-down.svg';
+import arrowDown from '../../assets/icons/arrow-down.svg';
 
 interface Props {
 	material: string[];
 }
 
 const MetalColorSwitcher: React.FC<Props> = ({ material }) => {
-	const [selected, setSelected] = useState(material[0]);
+	const [selected, setSelected] = useState<string>(material.length ? material[0] : '');
 	const [isOpen, setIsOpen] = useState(false);
 
 	return (
