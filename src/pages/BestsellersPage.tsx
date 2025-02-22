@@ -1,12 +1,10 @@
-
 import { useState } from 'react';
-import { Breadcrumbs } from '../../components/Breadcrumbs';
-import { CardItems } from '../../components/CardItems';
-import { Container } from '../../components/Container/Container';
-import Icon from '../../components/Icon';
-import Layout from '../../components/Layout';
-import { Bestseller, FilterItemsSeed } from '../../seed/seed';
-
+import Breadcrumbs from '../components/Breadcrumbs';
+import { CardItems } from '../components/CardItems';
+import { Container } from '../components/Container/Container';
+import Icon from '../components/Icon';
+import Layout from '../components/Layout/Layout';
+import { Bestseller, FilterItemsSeed } from '../seed/seed';
 
 const BestsellersPage = () => {
 	const [showFilter, setShowFilter] = useState(false);
@@ -15,7 +13,7 @@ const BestsellersPage = () => {
 	return (
 		<Layout>
 			<Container>
-				<Breadcrumbs currentPage="BestsellersPage" />
+				<Breadcrumbs className="mb-11" />
 			</Container>
 			<Container>
 				<h1>BestsellersPage</h1>
