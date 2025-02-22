@@ -53,6 +53,111 @@ export const cards = [
 	},
 ];
 
+export const Bestseller = [
+	{
+		id: 1,
+		img: '/best1.png',
+		title: 'Moonlight Glow',
+		category: 'Beauty line',
+		fav: false,
+		price: 180,
+	},
+	{
+		id: 2,
+		img: '/best2.png',
+		title: 'Celestial Spark',
+		category: 'Beauty line',
+		fav: false,
+		price: 90,
+	},
+	{
+		id: 3,
+		img: '/best3.png',
+		title: 'Silver Edge',
+		category: 'Beauty line',
+		badge: 'Top',
+		fav: false,
+		price: 135,
+	},
+	{
+		id: 4,
+		img: '/best4.png',
+		title: 'Elipse Duo',
+		category: 'Beauty line',
+		fav: false,
+		price: 170,
+	},
+	{
+		id: 5,
+		img: '/best2.png',
+		title: 'Celestial Spark',
+		category: 'Beauty line',
+		badge: ['Sale', 'New'],
+		fav: false,
+		price: 90,
+	},
+	{
+		id: 6,
+		img: '/best1.png',
+		title: 'Moonlight Glow',
+		category: 'Beauty line',
+		fav: false,
+		price: 180,
+	},
+	{
+		id: 7,
+		img: '/best3.png',
+		title: 'Silver Edge',
+		category: 'Beauty line',
+		badge: 'Top',
+		fav: false,
+		price: 135,
+	},
+	{
+		id: 8,
+		img: '/best1.png',
+		title: 'Moonlight Glow',
+		category: 'Beauty line',
+		fav: false,
+		price: 180,
+	},
+	{
+		id: 9,
+		img: '/best2.png',
+		title: 'Celestial Spark',
+		category: 'Beauty line',
+		badge: 'New',
+		fav: false,
+		price: 90,
+	},
+	{
+		id: 10,
+		img: '/best4.png',
+		title: 'Elipse Duo',
+		category: 'Beauty line',
+		fav: false,
+		price: 170,
+	},
+	{
+		id: 11,
+		img: '/best3.png',
+		title: 'Silver Edge',
+		category: 'Beauty line',
+		badge: 'Top',
+		fav: false,
+		price: 135,
+	},
+	{
+		id: 12,
+		img: '/best1.png',
+		title: 'Moonlight Glow',
+		category: 'Beauty line',
+		fav: false,
+		old_price: 220,
+		price: 180,
+	},
+];
+
 export const Baner = [
 	{
 		title: 'Jewelry becomes part of your story',
@@ -69,5 +174,67 @@ export const Baner = [
 		title: 'The seconds change, the style remains',
 		color: ' #27697F',
 		img: 'banner3.png',
+	},
+];
+export const FilterItemsSeed = [
+	{
+		title: 'Категорії',
+		params: [
+			{
+				name: 'Каблучки',
+			},
+			{
+				name: 'Обручки',
+			},
+			{
+				name: 'Сережки',
+			},
+			{
+				name: 'Браслети',
+			},
+			{
+				name: 'Ланцюжки',
+			},
+			{
+				name: 'Кольє',
+			},
+		],
+	},
+	{
+		title: 'Розмір',
+		params: [
+			{
+				name: '15',
+			},
+			{
+				name: '16',
+			},
+			{
+				name: '17',
+			},
+			{
+				name: '18',
+			},
+			{
+				name: '19',
+			},
+			{
+				name: '20',
+			},
+		],
+	},
+	{
+		title: 'Матеріал',
+		params: [
+			{
+				name: 'Золото',
+			},
+			{
+				name: 'Срібло',
+			},
+			{
+				name: 'Платина',
+			},
+		],
 	},
 ];

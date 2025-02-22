@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import Icon from './Icon';
 
-export type CartItem = {
+export type CartItemType = {
 	id: number;
 	img: string;
 	badge?: string;
@@ -17,10 +17,10 @@ export type CartItem = {
 };
 
 interface Props {
-	cards: CartItem[];
+	cards: CartItemType[];
 }
 
-export const Card: React.FC<Props> = ({ cards }) => {
+export const CardSlider: React.FC<Props> = ({ cards }) => {
 	const AnySlider = Slider as unknown as React.ComponentType<any>;
 	const settings = {
 		dots: true,
