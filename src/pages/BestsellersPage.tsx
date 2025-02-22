@@ -19,7 +19,7 @@ const BestsellersPage = () => {
 			</Container>
 			<Container>
 				<h1>BestsellersPage</h1>
-				<div className="controls_wrap flex items-center justify-between relative mb-11.5">
+				<div className="controls_wrap flex items-center justify-between relative mt-11.5">
 					<div className="filter_btn text-xl text-[#434141]">
 						<div className="flex items-center" onClick={() => setShowFilter(!showFilter)}>
 							<Icon className="mr-2" name="filter" width={18} height={18} />
@@ -34,7 +34,7 @@ const BestsellersPage = () => {
 					</div>
 
 					{showFilter && (
-						<div className="filter absolute max-w-[300px] top-10 -left-10 bg-white px-10 py-2 shadow-lg">
+						<div className="filter absolute z-10 max-w-[300px] top-10 -left-10 bg-white px-10 pt-2 pb-10 shadow-xl">
 							{FilterItemsSeed.map(item => (
 								<div className="bodrer border-b-[1px] border-[#018ABE] mb-5">
 									<h3>{item.title}</h3>
@@ -77,7 +77,7 @@ const BestsellersPage = () => {
 						</div>
 					)}
 					{showSorting && (
-						<div className="sorting absolute w-[200px] top-10 -right-16 bg-white px-5 py-2 shadow-lg">
+						<div className="sorting absolute w-[200px] z-10 top-10 -right-16 bg-white px-5 py-2 shadow-xl">
 							<div className="sorting_wrap flex flex-col gap-2 items-start">
 								<button onClick={() => console.log('Sort by Name')}>the lowest price</button>
 								<button onClick={() => console.log('Sort by Name')}>the highest price</button>
