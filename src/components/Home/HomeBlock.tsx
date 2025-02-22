@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, CartItem } from '../Card';
+import { CardSlider, CartItem } from '../CardSlider';
 import { Container } from '../Container/Container';
 
 interface Props {
@@ -20,7 +20,7 @@ export const HomeBlock: React.FC<Props> = ({ title, cards }) => {
 			</Container>
 			<Container>
 				<div className="flex items-center justify-between">
-					<Card cards={cards} />
+					<CardSlider cards={cards} />
 				</div>
 			</Container>
 		</>
