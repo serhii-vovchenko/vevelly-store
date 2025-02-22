@@ -19,7 +19,7 @@ const Icon: React.FC<IconProps> = ({
 }) => (
 	<div className="relative inline-block">
 		<svg className={className} width={width} height={height} fill={color}>
-			<use href={`/icons_spite.svg#${name}`} />
+			<use href={`/icons_spite2.svg#${name}`} />
 		</svg>
 
 		{badge && badge > 0 && (
