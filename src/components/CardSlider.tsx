@@ -1,13 +1,14 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
+import Button from './Button';
 import Icon from './Icon';
 
 export type CartItemType = {
 	id: number;
-	img: string;
+	img: string | string[];
 	badge?: string;
 	fav?: boolean;
 	category: string;
@@ -31,8 +32,16 @@ export const CardSlider: React.FC<Props> = ({ cards }) => {
 		<div className="w-full">
 			<AnySlider {...settings}>
 				{cards.map(item => {
+					const [currentImgIndex, setCurrentImgIndex] = useState(0);
+					const images = Array.isArray(item.img) ? item.img : [item.img];
+
+					const handleNextImage = () => {
+						if (images.length > 1) {
+							setCurrentImgIndex((currentImgIndex + 1) % images.length);
+						}
+					};
 					return (
-						<div key={item.id} className="card">
+						<div key={item.id} className="card group">
 							<div className="img relative">
 								{item.badge && (
 									<span
@@ -48,7 +57,19 @@ export const CardSlider: React.FC<Props> = ({ cards }) => {
 								<span className="fav-card absolute top-0 right-0 ">
 									{item.fav ? <Icon name="fav" /> : <Icon name="like" />}
 								</span>
-								<img src={item.img} alt={item.title} />
+								<img
+									src={images[currentImgIndex]}
+									alt={item.title}
+									className="!h-[300px] object-cover"
+								/>
+								{images.length > 1 && (
+									<span
+										className="absolute bottom-0 right-0 p-2 cursor-pointer"
+										onClick={handleNextImage}
+									>
+										<Icon name="down" color="#018ABE" className="-rotate-90" />
+									</span>
+								)}
 							</div>
 							<div className="wrap_info text-center">
 								<div className="category text-lg leading-6">{item.category}</div>
@@ -63,6 +84,9 @@ export const CardSlider: React.FC<Props> = ({ cards }) => {
 										<span>${item.price}</span>
 									)}
 								</div>
+								<Button className="hidden group-hover:block mt-2" type="button" variant="primary">
+									Add to bag
+								</Button>
 							</div>
 						</div>
 					);

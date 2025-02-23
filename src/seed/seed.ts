@@ -1,7 +1,7 @@
 export const cards = [
 	{
 		id: 1,
-		img: '/watch1.png',
+		img: ['/watch1.png', '/watch2.png', '/watch3.png'],
 		title: 'Beauty line',
 		category: 'Watches',
 		fav: false,
@@ -56,7 +56,7 @@ export const cards = [
 export const Bestseller = [
 	{
 		id: 1,
-		img: '/best1.png',
+		img: ['/best1.png', '/best2.png', '/best3.png'],
 		title: 'Moonlight Glow',
 		category: 'Beauty line',
 		fav: false,
