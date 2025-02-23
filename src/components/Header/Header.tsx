@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import React from 'react';
 import { useSearchStore } from '../../redux/search/useSearchStore';
+import { Basket } from '../Basket/Basket';
 import { Container } from '../Container/Container';
 import Icon from '../Icon';
 import { Menu } from '../Menu/Menu';
@@ -12,6 +13,10 @@ const Header = () => {
 	const [isShowMenu, setIsShowMenu] = React.useState(false);
 	const toggleMenu = () => {
 		setIsShowMenu(!isShowMenu);
+	};
+	const [isShowBasket, setIsShowBasket] = React.useState(false);
+	const toggleBasket = () => {
+		setIsShowBasket(!isShowBasket);
 	};
 	return (
 		<header className="relative">
@@ -33,14 +38,14 @@ const Header = () => {
 						VEVELLY
 					</div>
 					<div className="flex items-center justify-between gap-5">
-						<div className="flex items-center relative">
+						<div className="flex items-center relative" onClick={toggleSearchVisibility}>
 							{isSearchVisible && <Search />}
-							<span className="leading-2.5" onClick={toggleSearchVisibility}>
-								<Icon name="search" className="ml-2.5" />
-							</span>
+							<Icon name="search" className="ml-2.5" />
 						</div>
 						<Icon name="like" badge={1} />
-						<Icon name="basket" color="none" badge={5} />
+						<div className="flex items-center relative" onClick={toggleBasket}>
+							<Icon name="basket" color="none" badge={5} />
+						</div>
 						<Icon name="person" color="none" />
 					</div>
 				</div>
@@ -63,6 +68,17 @@ const Header = () => {
 						</div>
 					</Container>
 				</>
+			)}
+			<div
+				className={clsx(
+					'absolute top-40 right-0 z-50 transform transition-transform duration-500',
+					isShowBasket ? 'translate-x-0' : 'translate-x-full'
+				)}
+			>
+				<Basket onClose={toggleBasket} />
+			</div>
+			{isShowBasket && (
+				<div className="fixed inset-0 bg-black/10 z-40" onClick={toggleBasket}></div>
 			)}
 		</header>
 	);

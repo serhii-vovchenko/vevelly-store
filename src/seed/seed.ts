@@ -238,3 +238,30 @@ export const FilterItemsSeed = [
 		],
 	},
 ];
+
+export const basket = [
+	{
+		id: 12211,
+		path: 'golden-pearl',
+		img: '/watch1.png',
+		title: 'Golden Pearl',
+		desc: 'White gold ring with a pearl.',
+		sku: 560278,
+		material: 'Silver',
+		size: 16,
+		price: 450,
+		old_price: 550,
+	},
+	{
+		id: 12211,
+		path: 'celestial-spark',
+		img: '/best1.png',
+		title: 'Celestial Spark',
+		desc: 'White gold ring with a pearl.',
+		sku: 560278,
+		material: 'Gold',
+		size: 16,
+		price: 450,
+		old_price: 550,
+	},
+];
