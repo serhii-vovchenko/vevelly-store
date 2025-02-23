@@ -241,7 +241,7 @@ export const FilterItemsSeed = [
 
 export const basket = [
 	{
-		id: 12211,
+		id: 12212,
 		path: 'golden-pearl',
 		img: '/watch1.png',
 		title: 'Golden Pearl',

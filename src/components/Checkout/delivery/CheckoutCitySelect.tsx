@@ -1,10 +1,16 @@
 import { useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 import { FormInput } from '../../Form/form-input';
 import Icon from '../../Icon';
 
 const cities = ['Київ', 'Львів', 'Одеса', 'Дніпро', 'Харків'];
 
 export const CheckoutCitySelect: React.FC = () => {
+	const {
+		register,
+		setValue,
+		formState: { errors },
+	} = useFormContext();
 	const [showCityDropdown, setShowCityDropdown] = useState(false);
 	const [selectedCity, setSelectedCity] = useState('');
 
@@ -14,6 +20,7 @@ export const CheckoutCitySelect: React.FC = () => {
 
 	const handleCitySelect = (city: string) => {
 		setSelectedCity(city);
+		setValue('city', city);
 		setShowCityDropdown(false);
 	};
 
@@ -27,6 +34,7 @@ export const CheckoutCitySelect: React.FC = () => {
 				inputClassName="!border-l-0 !border-r-0 !border-t-0 border-b border-[#D6E8EE] !rounded-none"
 				className="text-base"
 				onClick={toggleCityDropdown}
+				{...register('city', { required: 'Выберите город' })}
 			/>
 			<span
 				className="absolute top-1/2 right-3 transform -translate-y-1/2 cursor-pointer"
@@ -63,6 +71,7 @@ export const CheckoutCitySelect: React.FC = () => {
 					</ul>
 				</div>
 			)}
+			
 		</div>
 	);
 };

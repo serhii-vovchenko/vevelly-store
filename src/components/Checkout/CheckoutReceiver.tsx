@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 import { FormInput } from '../Form/form-input';
 import { WhiteBlock } from './white-block';
 
 export const CheckoutReceiver: React.FC = () => {
+	const {
+		register,
+		formState: { errors },
+	} = useFormContext();
 	const [receiver, setReceiver] = useState('');
 	const handleReceiver = (method: string) => {
 		setReceiver(method);
-		console.log(method);
 	};
 	return (
 		<WhiteBlock title="4. Order receiver">
@@ -14,7 +18,7 @@ export const CheckoutReceiver: React.FC = () => {
 				<label className="flex items-center">
 					<input
 						type="radio"
-						name="receiver"
+						{...register('receiver', { required: 'Choose recipient' })}
 						value="recipient"
 						className="!mr-2 w-4.5 h-4.5"
 						onChange={() => handleReceiver('recipient')}
@@ -24,7 +28,7 @@ export const CheckoutReceiver: React.FC = () => {
 				<label className="flex items-center">
 					<input
 						type="radio"
-						name="receiver"
+						{...register('receiver', { required: 'Choose recipient' })}
 						value="another"
 						className="!mr-2 w-4.5 h-4.5"
 						onChange={() => handleReceiver('another')}
@@ -39,6 +43,9 @@ export const CheckoutReceiver: React.FC = () => {
 						</div>
 						<FormInput name="phone" placeholder="Phone number" className="text-base" />
 					</div>
+				)}
+				{errors.receiver && errors.receiver.message && (
+					<span className="text-red-500 text-sm">{errors.receiver.message}</span>
 				)}
 			</div>
 		</WhiteBlock>

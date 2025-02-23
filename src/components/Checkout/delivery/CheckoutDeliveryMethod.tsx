@@ -1,20 +1,33 @@
 import { useState } from 'react';
+import { useFormContext } from 'react-hook-form';
 import { FormInput } from '../../Form/form-input';
 
 const shops = ['Shop1', 'Shop2'];
 const posts = ['Post1', 'Post2'];
 
 export const CheckoutDeliveryMethod: React.FC = () => {
-	const [deliveryMethod, setDeliveryMethod] = useState('mail');
+	const {
+		register,
+		setValue,
+		formState: { errors },
+	} = useFormContext();
+	const [deliveryMethod, setDeliveryMethod] = useState('');
 	const [selectedOption, setSelectedOption] = useState('');
 
-	const handleDeliveryMethodChange = (method: string) => {
+	const handleDeliveryMethodChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const method = event.target.value;
 		setDeliveryMethod(method);
+		setValue('deliveryMethod', method);
 		setSelectedOption('');
 	};
 
-	const handleOptionSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+	const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		setSelectedOption(event.target.value);
+		if (deliveryMethod === 'store') {
+			setValue('shop', event.target.value);
+		} else if (deliveryMethod === 'mail') {
+			setValue('post', event.target.value);
+		}
 	};
 
 	return (
@@ -22,10 +35,10 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 			<label className="flex items-center">
 				<input
 					type="radio"
-					name="deliveryMethod"
+					{...register('deliveryMethod', { required: 'Выберите способ доставки' })}
 					value="store"
 					checked={deliveryMethod === 'store'}
-					onChange={() => handleDeliveryMethodChange('store')}
+					onChange={handleDeliveryMethodChange}
 					className="!mr-2 w-4.5 h-4.5"
 				/>
 				Pick up from store
@@ -34,8 +47,9 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 				<select
 					name="shop"
 					value={selectedOption}
-					onChange={handleOptionSelect}
+					onChange={handleSelectChange}
 					className="text-base p-2 !my-2 border border-[#D6E8EE] rounded-sm"
+					{...register('shop')}
 				>
 					<option value="" disabled>
 						Select Shop
@@ -50,10 +64,10 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 			<label className="flex items-center">
 				<input
 					type="radio"
-					name="deliveryMethod"
+					{...register('deliveryMethod', { required: 'Выберите способ доставки' })}
 					value="mail"
 					checked={deliveryMethod === 'mail'}
-					onChange={() => handleDeliveryMethodChange('mail')}
+					onChange={handleDeliveryMethodChange}
 					className="!mr-2 w-4.5 h-4.5"
 				/>
 				Pick up at the post office
@@ -62,8 +76,9 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 				<select
 					name="post"
 					value={selectedOption}
-					onChange={handleOptionSelect}
+					onChange={handleSelectChange}
 					className="text-base p-2 !my-2 border border-[#D6E8EE] rounded-sm"
+					{...register('post')}
 				>
 					<option value="" disabled>
 						Select Post
@@ -79,23 +94,46 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 			<label className="flex items-center mb-2">
 				<input
 					type="radio"
-					name="deliveryMethod"
+					{...register('deliveryMethod', { required: 'Выберите способ доставки' })}
 					value="pickup"
 					checked={deliveryMethod === 'pickup'}
-					onChange={() => handleDeliveryMethodChange('pickup')}
+					onChange={handleDeliveryMethodChange}
 					className="!mr-2 w-4.5 h-4.5"
 				/>
 				Address delivery
 			</label>
 			{deliveryMethod === 'pickup' && (
 				<div className="flex flex-col gap-3">
-					<FormInput name="street" placeholder="Steet" className="text-base" />
+					<FormInput
+						name="street"
+						placeholder="Street"
+						className="text-base"
+						{...register('street')}
+					/>
 					<div className="wrap flex flex-row gap-5">
-						<FormInput name="house" placeholder="House" className="text-base w-1/2" />
-						<FormInput name="apartment" placeholder="Apartment" className="text-base w-1/2" />
+						<FormInput
+							name="house"
+							placeholder="House"
+							className="text-base w-1/2"
+							{...register('house')}
+						/>
+						<FormInput
+							name="apartment"
+							placeholder="Apartment"
+							className="text-base w-1/2"
+							{...register('apartment')}
+						/>
 					</div>
-					<FormInput name="comment" placeholder="Comment" className="text-base" />
+					<FormInput
+						name="comment"
+						placeholder="Comment"
+						className="text-base"
+						{...register('comment')}
+					/>
 				</div>
+			)}
+			{errors.deliveryMethod?.message && (
+				<span className="text-red-500 text-sm">{errors.deliveryMethod.message}</span>
 			)}
 		</div>
 	);

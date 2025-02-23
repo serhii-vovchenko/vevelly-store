@@ -11,7 +11,9 @@ interface Props {
 
 export const CheckoutBasket: React.FC<Props> = ({ className, triggerFormSubmit }) => {
 	return (
-		<div className={clsx('basket_content flex justify-center items-center flex-col ', className)}>
+		<div
+			className={clsx('basket_content flex justify-center items-center flex-col mb-10', className)}
+		>
 			<div className="checkout_basket_items w-full">
 				{basket.map(item => (
 					<BasketItems key={item.id} item={item} />

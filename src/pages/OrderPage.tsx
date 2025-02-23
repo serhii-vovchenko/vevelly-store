@@ -2,8 +2,8 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useRef, useState } from 'react';
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form';
 import {
-	CheckoutFormValues,
 	checkoutFormSchema,
+	CheckoutFormValues,
 } from '../components/Checkout/checkout-form-schema';
 import { CheckoutBasket } from '../components/Checkout/CheckoutBasket';
 import { CheckoutPayment } from '../components/Checkout/CheckoutPayment';
@@ -36,7 +36,21 @@ const OrderPage = () => {
 	const form = useForm<CheckoutFormValues>({
 		resolver: zodResolver(checkoutFormSchema),
 		defaultValues: {
+			firstName: '',
+			lastName: '',
 			email: '',
+			phone: '',
+			address: '',
+			receiver: '',
+			city: '',
+			deliveryMethod: '',
+			shop: '',
+			post: '',
+			street: '',
+			house: '',
+			apartment: '',	
+			comment: '',
+			payment: '',
 			password: '',
 		},
 	});
@@ -45,8 +59,9 @@ const OrderPage = () => {
 		try {
 			setSubmitting(true);
 			handleLogin();
+			console.log('Form submitted successfully:', data);
 		} catch (error) {
-			console.log(error);
+			console.error('Form submission error:', error);
 			setSubmitting(false);
 		}
 	};
