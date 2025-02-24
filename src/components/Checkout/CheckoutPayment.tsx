@@ -38,7 +38,7 @@ export const CheckoutPayment: React.FC = () => {
 					/>
 					Payment in installments
 				</label>
-				{errors.payment && <span className="text-red-500 text-sm">{errors.payment.message}</span>}
+				{errors.payment && <span className="text-red-500 text-sm">{errors.payment.message as String}</span>}
 			</div>
 		</WhiteBlock>
 	);

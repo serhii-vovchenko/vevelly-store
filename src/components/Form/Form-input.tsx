@@ -44,7 +44,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 				)}
 
 				<div className="relative">
-					{name === 'phone' ? (
+					{name === 'phone' || name === 'phone_receiver' ? (
 						<IMaskInput
 							id="phone"
 							mask="+38 (000) 000-00-00"
@@ -55,17 +55,18 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 							}}
 							className="flex w-full rounded-md border border-input bg-background px-3 py-2 ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 h-10 text-md  border-[#D6E8EE]"
 							onAccept={handleMaskChange}
+							inputRef={ref}
 						/>
 					) : (
 						<input
 							id={name}
-							ref={ref}
 							className={clsx(
 								inputClassName,
 								'h-10 text-md w-full p-2.5 border-[1px] rounded-sm border-[#D6E8EE]'
 							)}
 							{...register(name)}
 							{...props}
+							ref={ref}
 						/>
 					)}
 				</div>

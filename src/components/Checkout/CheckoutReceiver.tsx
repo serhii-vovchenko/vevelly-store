@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { FormInput } from '../Form/form-input';
+import { FormInput } from '../Form/Form-input';
 import { WhiteBlock } from './white-block';
 
 export const CheckoutReceiver: React.FC = () => {
@@ -45,7 +45,7 @@ export const CheckoutReceiver: React.FC = () => {
 					</div>
 				)}
 				{errors.receiver && errors.receiver.message && (
-					<span className="text-red-500 text-sm">{errors.receiver.message}</span>
+					<span className="text-red-500 text-sm">{errors.receiver.message as String}</span>
 				)}
 			</div>
 		</WhiteBlock>
