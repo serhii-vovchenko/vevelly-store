@@ -1,4 +1,3 @@
-'use client';
 import clsx from 'clsx';
 import React, { forwardRef } from 'react';
 import { useFormContext } from 'react-hook-form';
@@ -24,6 +23,11 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 
 		const value = watch(name);
 		const errorText = errors[name]?.message as string;
+
+		const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+			setValue(name, event.target.value, { shouldValidate: true });
+			trigger(name);
+		};
 
 		const handleMaskChange = (maskedValue: any) => {
 			setValue(name, maskedValue, { shouldValidate: true });
@@ -67,6 +71,7 @@ export const FormInput = forwardRef<HTMLInputElement, FormInputProps>(
 							{...register(name)}
 							{...props}
 							ref={ref}
+							onChange={handleChange}
 						/>
 					)}
 				</div>
