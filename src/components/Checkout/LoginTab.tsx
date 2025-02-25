@@ -3,7 +3,7 @@ import React from 'react';
 
 import { SubmitHandler, useFormContext } from 'react-hook-form';
 import Button from '../Button';
-import { FormInput } from '../Form/form-input';
+import { FormInput } from '../Form/Form-input';
 import { LoginValues } from './checkout-form-schema';
 
 interface Props {

@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form';
-import { FormInput } from '../../Form/form-input';
+import { FormInput } from '../../Form/Form-input';
 
 const shops = ['Shop1', 'Shop2'];
 const posts = ['Post1', 'Post2'];

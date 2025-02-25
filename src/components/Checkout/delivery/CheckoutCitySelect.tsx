@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
-import { FormInput } from '../../Form/form-input';
+import { FormInput } from '../../Form/Form-input';
 import Icon from '../../Icon';
 
 const cities = ['Київ', 'Львів', 'Одеса', 'Дніпро', 'Харків'];
@@ -19,7 +19,7 @@ export const CheckoutCitySelect: React.FC = () => {
 	useEffect(() => {
 		setSelectedCity(watch('city'));
 	}, [watch('city')]);
-	
+
 	const toggleCityDropdown = () => {
 		setShowCityDropdown(!showCityDropdown);
 	};
