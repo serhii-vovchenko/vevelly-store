@@ -8,10 +8,10 @@ interface BasketItemsProps {
 
 export const BasketItems: React.FC<BasketItemsProps> = ({ item }) => {
 	return (
-		<div className="basket_item flex justify-between items-center w-full mb-4 border-b-[1px] border-[#D6E8EE] pb-4">
+		<div className="basket_item flex justify-between items-center w-full mb-4 border-b-[1px] border-[#D6E8EE] last:border-none pb-4">
 			<div className="basket_item_left flex items-center w-full">
-				<div className="basket_item_img mr-4">
-					<img src={item.img} alt={item.title} className="!h-[121px] object-cover" />
+				<div className="basket_item_img mr-4 border border-[#018ABE]">
+					<img src={item.img} alt={item.title} className="!w-[197px] !h-[121px] object-cover" />
 				</div>
 				<div className="basket_item_info flex-grow relative">
 					<p className="basket_item_title  text-base text-[#0D0C0C] leading-5  font-bold">

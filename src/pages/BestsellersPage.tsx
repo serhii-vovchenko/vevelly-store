@@ -7,7 +7,7 @@ import { Filter } from '../components/Filter';
 import Icon from '../components/Icon';
 import Layout from '../components/Layout/Layout';
 import { Bestseller } from '../seed/seed';
-import { Sorting } from './Sorting';
+import { Sorting } from '../components/Sorting';
 
 const BestsellersPage = () => {
 	const [showFilter, setShowFilter] = useState(false);
