@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useFormContext } from 'react-hook-form';
 import { FormInput } from '../../Form/form-input';
 import Icon from '../../Icon';
@@ -9,25 +9,35 @@ export const CheckoutCitySelect: React.FC = () => {
 	const {
 		register,
 		setValue,
+		watch,
+		trigger,
 		formState: { errors },
 	} = useFormContext();
 	const [showCityDropdown, setShowCityDropdown] = useState(false);
-	const [selectedCity, setSelectedCity] = useState('');
+	const [selectedCity, setSelectedCity] = useState(watch('city') || '');
 
+	useEffect(() => {
+		setSelectedCity(watch('city'));
+	}, [watch('city')]);
+	
 	const toggleCityDropdown = () => {
 		setShowCityDropdown(!showCityDropdown);
 	};
 
 	const handleCitySelect = (city: string) => {
 		setSelectedCity(city);
-		setValue('city', city);
+		setValue('city', city, { shouldValidate: true });
+		trigger('city');
 		setShowCityDropdown(false);
+	};
+
+	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		setSelectedCity(e.target.value);
 	};
 
 	return (
 		<div className="relative">
 			<FormInput
-				name="city"
 				placeholder="City"
 				value={selectedCity}
 				readOnly
@@ -71,7 +81,6 @@ export const CheckoutCitySelect: React.FC = () => {
 					</ul>
 				</div>
 			)}
-			
 		</div>
 	);
 };

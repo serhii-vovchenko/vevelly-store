@@ -6,10 +6,11 @@ import Button from '../Button';
 
 interface Props {
 	className?: string;
-	triggerFormSubmit: () => void;
+	onFormSubmit: () => void;
+	submitting: boolean;
 }
 
-export const CheckoutBasket: React.FC<Props> = ({ className, triggerFormSubmit }) => {
+export const CheckoutBasket: React.FC<Props> = ({ className, onFormSubmit, submitting }) => {
 	return (
 		<div
 			className={clsx('basket_content flex justify-center items-center flex-col mb-10', className)}
@@ -37,8 +38,14 @@ export const CheckoutBasket: React.FC<Props> = ({ className, triggerFormSubmit }
 					$ {basket.reduce((total, item) => total + item.price, 0)}
 				</div>
 			</div>
-			<Button className="checkout_go" variant="primary" type="button" onClick={triggerFormSubmit}>
-				Checkout
+			<Button
+				className="checkout_go"
+				variant="primary"
+				type="button"
+				onClick={onFormSubmit}
+				disabled={submitting}
+			>
+				{submitting ? 'Sending...' : 'Checkout'}
 			</Button>
 		</div>
 	);

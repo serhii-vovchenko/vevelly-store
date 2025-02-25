@@ -1,5 +1,5 @@
 import { useFormContext } from 'react-hook-form';
-import { FormInput } from '../../Form/Form-input';
+import { FormInput } from '../../Form/form-input';
 
 const shops = ['Shop1', 'Shop2'];
 const posts = ['Post1', 'Post2'];
@@ -9,6 +9,7 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 		register,
 		setValue,
 		watch,
+		trigger,
 		formState: { errors },
 	} = useFormContext();
 
@@ -18,24 +19,47 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 
 	const handleDeliveryMethodChange = (event: React.ChangeEvent<HTMLInputElement>) => {
 		const method = event.target.value;
-		setValue('deliveryMethod', method);
+		setValue('deliveryMethod', method, { shouldValidate: true });
+		trigger('deliveryMethod');
 
 		if (method === 'store') {
-			setValue('post', '');
-			setValue('street', '');
-			setValue('house', '');
-			setValue('apartment', '');
-			setValue('comment', '');
+			setValue('post', '', { shouldValidate: true });
+			setValue('delivery_street', '', { shouldValidate: true });
+			setValue('delivery_house', '', { shouldValidate: true });
+			setValue('delivery_apartment', '', { shouldValidate: true });
+			setValue('delivery_comment', '', { shouldValidate: true });
+			trigger('post');
+			trigger('delivery_street');
+			trigger('delivery_house');
+			trigger('delivery_apartment');
+			trigger('delivery_comment');
 		} else if (method === 'mail') {
-			setValue('shop', '');
-			setValue('street', '');
-			setValue('house', '');
-			setValue('apartment', '');
-			setValue('comment', '');
+			setValue('shop', '', { shouldValidate: true });
+			setValue('delivery_street', '', { shouldValidate: true });
+			setValue('delivery_house', '', { shouldValidate: true });
+			setValue('delivery_apartment', '', { shouldValidate: true });
+			setValue('delivery_comment', '', { shouldValidate: true });
+			trigger('shop');
+			trigger('delivery_street');
+			trigger('delivery_house');
+			trigger('delivery_apartment');
+			trigger('delivery_comment');
 		} else if (method === 'pickup') {
-			setValue('shop', '');
-			setValue('post', '');
+			setValue('shop', '', { shouldValidate: true });
+			setValue('post', '', { shouldValidate: true });
+			trigger('shop');
+			trigger('post');
 		}
+	};
+
+	const handleShopChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+		setValue('shop', e.target.value, { shouldValidate: true });
+		trigger('shop');
+	};
+
+	const handlePostChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+		setValue('post', e.target.value, { shouldValidate: true });
+		trigger('post');
 	};
 
 	return (
@@ -55,7 +79,7 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 				<select
 					{...register('shop', deliveryMethod === 'store' ? { required: 'Select a shop' } : {})}
 					value={selectedShop}
-					onChange={e => setValue('shop', e.target.value)}
+					onChange={handleShopChange}
 					className="text-base p-2 !my-2 border border-[#D6E8EE] rounded-sm"
 				>
 					<option value="" disabled>
@@ -87,7 +111,7 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 						deliveryMethod === 'mail' ? { required: 'Select a post office' } : {}
 					)}
 					value={selectedPost}
-					onChange={e => setValue('post', e.target.value)}
+					onChange={handlePostChange}
 					className="text-base p-2 !my-2 border border-[#D6E8EE] rounded-sm"
 				>
 					<option value="" disabled>
@@ -115,29 +139,36 @@ export const CheckoutDeliveryMethod: React.FC = () => {
 			{deliveryMethod === 'pickup' && (
 				<div className="flex flex-col gap-3">
 					<FormInput
-						placeholder="Street"
+						placeholder="street"
 						className="text-base"
-						{...register('street', deliveryMethod === 'pickup' ? { required: 'Enter street' } : {})}
+						{...register(
+							'delivery_street',
+							deliveryMethod === 'pickup' ? { required: 'Enter delivery_street' } : {}
+						)}
 					/>
 					<div className="wrap flex flex-row gap-5">
 						<FormInput
-							placeholder="House"
+							placeholder="house"
 							className="text-base w-1/2"
 							{...register(
-								'house',
-								deliveryMethod === 'pickup' ? { required: 'Enter house number' } : {}
+								'delivery_house',
+								deliveryMethod === 'pickup' ? { required: 'Enter delivery_house number' } : {}
 							)}
 						/>
 						<FormInput
-							placeholder="Apartment"
+							placeholder="apartment"
 							className="text-base w-1/2"
 							{...register(
-								'apartment',
-								deliveryMethod === 'pickup' ? { required: 'Enter apartment number' } : {}
+								'delivery_apartment',
+								deliveryMethod === 'pickup' ? { required: 'Enter delivery_apartment number' } : {}
 							)}
 						/>
 					</div>
-					<FormInput placeholder="Comment" className="text-base" {...register('comment')} />
+					<FormInput
+						placeholder="comment"
+						className="text-base"
+						{...register('delivery_comment')}
+					/>
 				</div>
 			)}
 
