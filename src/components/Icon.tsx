@@ -6,6 +6,7 @@ type IconProps = {
 	width?: number;
 	height?: number;
 	color?: string;
+	stroke?: string;
 	className?: string;
 };
 
@@ -15,11 +16,12 @@ const Icon: React.FC<IconProps> = ({
 	width = 24,
 	height = 24,
 	color = '#0D0C0C',
+	stroke,
 	className,
 }) => (
 	<div className="relative inline-block">
-		<svg className={className} width={width} height={height} fill={color}>
-			<use href={`/icons_spite2.svg#${name}`} />
+		<svg className={className} width={width} height={height} stroke={stroke} fill={color}>
+			<use href={`/icons_spite6.svg#${name}`} />
 		</svg>
 
 		{badge && badge > 0 && (
