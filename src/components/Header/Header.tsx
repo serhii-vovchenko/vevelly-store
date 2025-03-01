@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSearchStore } from '../../redux/search/useSearchStore';
 import { Basket } from '../Basket/Basket';
 import { Container } from '../Container/Container';
@@ -7,10 +7,16 @@ import Icon from '../Icon';
 import { Menu } from '../Menu/Menu';
 import { Search } from './Search';
 import { Topline } from './Topline';
+import { selectLanguage } from '../../redux/language/selectors';
+import { useSelector } from 'react-redux';
+import { header as t } from '../../translations/translations';
 
 const Header = () => {
 	const { isSearchVisible, toggleSearchVisibility } = useSearchStore();
 	const [isShowMenu, setIsShowMenu] = React.useState(false);
+
+	const lang = useSelector(selectLanguage);
+
 	const toggleMenu = () => {
 		setIsShowMenu(!isShowMenu);
 	};
@@ -27,7 +33,7 @@ const Header = () => {
 						<span onClick={toggleMenu}>
 							<Icon name="menu" />
 						</span>
-						Catalog
+						{t.catalog[lang]}
 					</div>
 					<div
 						className={clsx(
@@ -61,7 +67,7 @@ const Header = () => {
 								<img className="h-40" src="/photo-menu.png" alt="menu-promo" />
 								<div className="border-l-[1px]  border-[#018ABE]">
 									<div className="h-[34px] text-lg pt-2.5 leading-6 text-[#0d0c0c] relative before:content-[''] before:absolute before:-left-[1px] before:top-8.5 before:w-20 before:h-[1px] before:bg-[#018ABE]">
-										<div className="absolute top-5 right-0">Знижки до 25%</div>
+										<div className="absolute top-5 right-0">{t.sales[lang]}</div>
 									</div>
 								</div>
 							</div>
