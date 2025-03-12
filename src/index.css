@@ -1,8 +1,12 @@
 @import 'modern-normalize';
+@import 'tailwindcss';
+@import 'tailwindcss';
+
 html {
 	scroll-behavior: smooth;
 }
 body {
+	font-family: 'Krub', serif;
 	margin: 0;
 	min-width: 320px;
 	min-height: 100vh;
@@ -35,4 +39,96 @@ img {
 	display: block;
 	max-width: 100%;
 	height: auto;
+}
+
+.container {
+	width: 100%;
+	max-width: 1320px; /* Как в Bootstrap */
+	margin: 0 auto;
+	padding: 0 16px; /* Отступы по бокам */
+}
+
+@media (max-width: 1200px) {
+	.container {
+		max-width: 1140px;
+	}
+}
+
+@media (max-width: 992px) {
+	.container {
+		max-width: 960px;
+	}
+}
+
+@media (max-width: 768px) {
+	.container {
+		max-width: 720px;
+	}
+}
+
+@media (max-width: 576px) {
+	.container {
+		max-width: 100%;
+		padding: 0 12px;
+	}
+}
+h1 {
+	font-family: 'Libre Caslon Display', serif;
+	font-size: 46px;
+	line-height: 60px;
+	color: #0d0c0c;
+	text-transform: uppercase;
+}
+
+.header__logo,
+.slider_text,
+.full_promo_text,
+.gift_title,
+.watch .title,
+.about_title,
+.subscribe,
+.footer_logo {
+	font-family: 'Libre Caslon Display', serif;
+}
+
+.slick-dots li button:before {
+	width: 18px !important;
+	height: 18px !important;
+	font-size: normal !important;
+	color: #c0c0c0 !important;
+}
+
+.slick-dots li.slick-active button:before {
+	color: #1870a6 !important;
+}
+.slick-track {
+	min-height: 440px;
+}
+
+@layer utilities {
+	.scrollbar-hide {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.scrollbar-hide::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.filter h3 {
+	font-family: 'Inter', serif;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	color: #0d0c0c;
+	margin-bottom: 16px;
+}
+
+.filter label {
+	font-family: 'Inter', serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 20px;
+	color: #434141;
 }
