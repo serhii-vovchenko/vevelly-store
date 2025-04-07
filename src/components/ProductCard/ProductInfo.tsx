@@ -1,49 +1,41 @@
-import clsx from 'clsx';
-import React from 'react';
 import Button from '../Button';
 import SizeComponent from '../SizeComponent';
 import MetalColorSwitcher from './MetalColorSwitcher';
+import { useSelector } from 'react-redux';
+import {
+	currentSizeSelector,
+	productSelector,
+	subproductsSelector,
+} from '../../redux/product/selectors';
 
-interface Product {
-	id: number;
-	path: string;
-	img: string;
-	title: string;
-	desc: string;
-	sku: number;
-	material: string[];
-	size: Record<number, boolean>;
-	old_price?: number;
-	price: number;
-}
-
-interface Props {
-	product: Product;
-}
-
-const ProductInfo: React.FC<Props> = ({ product }) => {
-	const { img, title, desc, sku, material, size, old_price, price } = product;
+const ProductInfo = () => {
+	const product = useSelector(productSelector);
+	const subproducts = useSelector(subproductsSelector);
+	const currentSize = useSelector(currentSizeSelector);
 
 	return (
-		<div className="flex flex-col gap-5 w-[372px] justify-between">
+		<div className="flex flex-col gap-5 justify-between">
 			<div className="flex flex-col gap-2 ">
-				<h1 className="text-2xl font-medium leading-8">{title}</h1>
-				<p className="text-[18px] font-light leading-6">{desc}</p>
-				<p className="text-[18px] font-light leading-6">{`SKU: ${sku}`}</p>
+				<h1 className="!text-3xl font-medium leading-8 w-full">{product?.name}</h1>
+				<p className="text-[18px] font-light leading-6">{product?.design}</p>
+				<p className="text-[18px] font-light leading-6">{`SKU: ${product?.sku}`}</p>
 			</div>
-
-			<MetalColorSwitcher material={material} />
-
-			<SizeComponent items={size} />
-
+			<MetalColorSwitcher />
+			<SizeComponent />
 			<div>
-				{old_price ? (
+				{subproducts && subproducts[currentSize]?.old_price ? (
 					<>
-						<span className="text-[16px] font-normal line-through mr-2.5">${old_price}</span>
-						<span className="text-lg font-normal text-red-400 leading-6">${price}</span>
+						<span className="text-[16px] font-normal line-through mr-2.5">
+							${subproducts && subproducts[currentSize]?.old_price}
+						</span>
+						<span className="text-lg font-normal text-red-400 leading-6">
+							${subproducts && subproducts[currentSize]?.new_price}
+						</span>
 					</>
 				) : (
-					<span className="text-lg font-normal text-[#0D0C0C] leading-6">${price}</span>
+					<span className="text-lg font-normal text-[#0D0C0C] leading-6">
+						${subproducts && subproducts[currentSize]?.price}
+					</span>
 				)}
 			</div>
 

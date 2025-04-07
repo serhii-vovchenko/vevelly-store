@@ -1,34 +1,40 @@
-import React, { useState } from 'react';
 import Button from './Button';
+import { useSelector } from 'react-redux';
+import { currentSizeSelector, subproductsSelector } from '../redux/product/selectors';
+import { AppDispatch } from '../redux/store';
+import { useDispatch } from 'react-redux';
+import { handleCurrentSize } from '../redux/product/slice';
 
-interface Props {
-	items: Record<string, boolean>;
-}
+const SizeComponent = () => {
+	const subproducts = useSelector(subproductsSelector);
+	const currentSize = useSelector(currentSizeSelector);
+	const dispatch: AppDispatch = useDispatch();
 
-const SizeComponent: React.FC<Props> = ({ items }) => {
-	const allSize = Object.keys(items).toSorted();
-	const [currentSize, setCurrentSize] = useState<string>(allSize.length ? allSize[0] : '');
+	const allSizes = subproducts?.map(item => {
+		return item.length;
+	});
 
-	const handleClickSize = (size: string): void => {
-		setCurrentSize(size);
+	const handleSize = (index: number): void => {
+		dispatch(handleCurrentSize(index));
 	};
 
 	return (
-		<div>
+		<div className="w-[372px]">
 			<p className="text-lg text-[#0D0C0C] font-medium leading-6">Size</p>
 			<div className="flex gap-3 flex-wrap mt-2.5">
-				{allSize.map(item => {
-					const outOfStock = !items[item] ? 'text-[#C0C0C0] !cursor-not-allowed' : '';
-					const isActive = currentSize === item ? '!border-[#018ABE]' : '';
+				{allSizes?.map((item, index) => {
+					// const outOfStock = !items[item] ? 'text-[#C0C0C0] !cursor-not-allowed' : '';
+					const isActive = currentSize === index ? '!border-[#018ABE]' : '';
 
 					return (
 						<Button
 							type="button"
-							onClick={() => handleClickSize(item)}
+							onClick={() => handleSize(index)}
 							variant="size"
-							key={item}
-							className={`${outOfStock} ${isActive}`}
-							disabled={!items[item]}
+							key={index}
+							className={`${isActive}`}
+							// className={`${outOfStock} ${isActive}`}
+							// disabled={!items[item]}
 						>
 							{item}
 						</Button>

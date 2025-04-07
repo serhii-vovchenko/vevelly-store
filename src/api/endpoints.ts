@@ -1,4 +1,5 @@
 export enum Endpoints {
-	PRODUCTS = '/product/',
-	CATEGORIES = '/categories/',
+	PRODUCTS = 'product/',
+	ALL_PRODUCT = 'all-products/',
+	CATEGORIES = 'categories/',
 }

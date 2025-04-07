@@ -1,75 +1,95 @@
 import React from 'react';
-
-interface DescriptionMoc {
-	metal: string;
-	color: string;
-	fineness: string;
-	style: string;
-	size: {
-		height: string;
-		length: string;
-		weight: string;
-		thickness: string;
-	};
-	stone: string;
-	text: string;
-}
-
-const descriptionMoc: DescriptionMoc = {
-	metal: 'Gold',
-	color: 'Yellow',
-	fineness: '18K gold',
-	style: 'Universal, round',
-	size: {
-		height: '2mm',
-		length: '160-180mm (for size 17)',
-		weight: '2,34 g',
-		thickness: '1,77mm',
-	},
-	stone: 'Pearl',
-	text: 'An elegant gold ring with two large, sparkling pearls is the embodiment of sophisticated style and sophistication. The ring is ideal for creating a delicate and feminine look, harmoniously complementing both everyday and evening wear. This jewelry will become a symbol of refined taste and will give a sense of uniqueness to each of its owners. An ideal choice as a gift or for special occasions.',
-};
+import { useSelector } from 'react-redux';
+import {
+	currentMetalColorSelector,
+	currentSizeSelector,
+	materialsSelector,
+	productSelector,
+	subproductsSelector,
+} from '../../../redux/product/selectors';
 
 const Description = () => {
-	const descKeys = Object.keys(descriptionMoc) as (keyof DescriptionMoc)[];
+	const product = useSelector(productSelector);
+	const subproducts = useSelector(subproductsSelector);
+	const materials = useSelector(materialsSelector);
+	const currentMetalColor = useSelector(currentMetalColorSelector);
+	const currentSize = useSelector(currentSizeSelector);
 
 	return (
 		<div className="flex gap-15">
 			<ul className="w-[464px] flex flex-col gap-2.5 flex-shrink-0">
-				{descKeys.map(key => {
-					if (key === 'text') {
-						return;
-					}
+				<li className="flex gap-2.5 items-center">
+					<p className="w-22 text-lg font-medium leading-6 capitalize">Metal: </p>
+					<p className="text-lg font-light leading-6">
+						{materials && materials[currentMetalColor]?.material?.material}
+					</p>
+				</li>
 
-					if (key === 'size') {
-						const sizeKeys = Object.keys(
-							descriptionMoc.size
-						) as (keyof typeof descriptionMoc.size)[];
-						return (
-							<li key={key} className="flex gap-2.5">
-								<p className="w-22 text-lg font-medium leading-6 capitalize">{key}:</p>
-								<ul className="flex flex-col gap-1.5 ">
-									{sizeKeys.map(sizeKey => (
-										<li key={sizeKey} className="flex gap-2.5 aline-center">
-											<p className="w-22 capitalize text-lg font-light leading-6">{sizeKey}: </p>
-											<p className="text-lg font-light leading-6">{descriptionMoc.size[sizeKey]}</p>
-										</li>
-									))}
-								</ul>
-							</li>
-						);
-					}
+				<li className="flex gap-2.5 items-center">
+					<p className="w-22 text-lg font-medium leading-6 capitalize">Color: </p>
+					<p className="text-lg font-light leading-6">
+						{materials && materials[currentMetalColor]?.material?.color}
+					</p>
+				</li>
 
-					return (
-						<li key={key} className="flex gap-2.5 items-center">
-							<p className="w-22 text-lg font-medium leading-6 capitalize">{key}:</p>
-							<p className="text-lg font-light leading-6">{descriptionMoc[key]}</p>
+				<li className="flex gap-2.5 items-center">
+					<p className="w-22 text-lg font-medium leading-6 capitalize">Fineness: </p>
+					<p className="text-lg font-light leading-6">
+						{materials && materials[currentMetalColor]?.material?.assay}
+					</p>
+				</li>
+
+				<li className="flex gap-2.5 items-center">
+					<p className="w-22 text-lg font-medium leading-6 capitalize">Style: </p>
+					<p className="text-lg font-light leading-6">
+						{materials && materials[currentMetalColor]?.material?.label}
+					</p>
+				</li>
+
+				<li className="flex gap-2.5 items-start">
+					<p className="w-22 text-lg font-medium leading-6 capitalize">Size: </p>
+					<ul className="flex flex-col gap-1.5 ">
+						<li className="flex gap-2.5 aline-center">
+							<p className="w-22 capitalize text-lg font-light leading-6">Height: </p>
+							<p className="text-lg font-light leading-6">
+								{subproducts && subproducts[currentSize]?.width}
+							</p>
 						</li>
-					);
-				})}
+
+						<li className="flex gap-2.5 aline-center">
+							<p className="w-22 capitalize text-lg font-light leading-6">Length: </p>
+							<p className="text-lg font-light leading-6">
+								{subproducts && subproducts[currentSize]?.length}
+							</p>
+						</li>
+
+						<li className="flex gap-2.5 aline-center">
+							<p className="w-22 capitalize text-lg font-light leading-6">Weight: </p>
+							<p className="text-lg font-light leading-6">
+								{subproducts && subproducts[currentSize]?.weight}
+							</p>
+						</li>
+
+						<li className="flex gap-2.5 aline-center">
+							<p className="w-22 capitalize text-lg font-light leading-6">Thickness: </p>
+							<p className="text-lg font-light leading-6">
+								{subproducts && subproducts[currentSize]?.width}
+							</p>
+						</li>
+					</ul>
+				</li>
+
+				<li className="flex gap-2.5 items-center">
+					<p className="w-22 text-lg font-medium leading-6 capitalize">Stone: </p>
+					<p className="text-lg font-light leading-6">
+						{product && product?.gemstone[0]?.gemstone}
+					</p>
+				</li>
 			</ul>
 			<div>
-				<p className="text-lg font-normal leading-6 text-justify">{descriptionMoc.text}</p>
+				<p className="text-lg font-normal leading-6 text-justify">
+					{product && product?.description[0]?.text}
+				</p>
 			</div>
 		</div>
 	);
