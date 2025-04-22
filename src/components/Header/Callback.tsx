@@ -11,7 +11,9 @@ export const Callback = () => {
 				+38 067 747 01 45
 			</div>
 			<div>
-				<span className="block text-sm leading-4.5 text-right text-black">{t.callToYou[lang]}</span>
+				<span className="block text-sm leading-4.5 text-center text-black">
+					{t.callToYou[lang]}
+				</span>
 			</div>
 			<div>
 				<div className="mb-2.5">

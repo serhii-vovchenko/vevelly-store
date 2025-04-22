@@ -20,7 +20,7 @@ const Footer = () => {
 					</div>
 					<div className="flex gap-14">
 						<div className="flex flex-col">
-							<div className="text-2xl font-medium leading-8 text-[#0D0C0C] mb-4">
+							<div className="text-[28px] font-bold leading-8 text-[#0D0C0C] mb-4">
 								{t.info[lang]}
 							</div>
 							<div className="text-lg font-light leading-6 text-[#0d0c0c]">
@@ -38,23 +38,15 @@ const Footer = () => {
 							</div>
 						</div>
 						<div className="flex flex-col gap-2.5">
-							<div className="text-2xl font-medium leading-8 text-[#0D0C0C] mb-4">
+							<div className="text-[28px] font-bold leading-8 text-[#0D0C0C] mb-4">
 								{t.contacts[lang]}
 							</div>
 							<div className="text-lg font-light leading-6 text-[#0d0c0c]">
 								<ul>
-									<li className="py-1">
-										<a href="#">0-800-603-897</a>
-									</li>
-									<li className="py-1">
-										<a href="#">+38 067 747 01 45</a>
-									</li>
-									<li className="py-1">
-										<a href="#">vevelly@gmail.com</a>
-									</li>
-									<li className="py-1">
-										<a href="#">{t.weekDay[lang]}</a>
-									</li>
+									<li className="py-1">0-800-603-897</li>
+									<li className="py-1">+38 067 747 01 45</li>
+									<li className="py-1">vevelly@gmail.com</li>
+									<li className="py-1">{t.weekDay[lang]}</li>
 								</ul>
 							</div>
 						</div>
