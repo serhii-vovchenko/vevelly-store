@@ -22,7 +22,9 @@ export const Gift = () => {
 							<p className="pb-5">{t.giftText[lang]}</p>
 						</div>
 						<div className="text-right text-lg leading-6">
-							<a href="#">{t.readMore[lang]}</a>
+							<button className="text-sm leading-4.5 text-white bg-[#1E84C3] rounded-sm p-2.5 px-5">
+								{t.giftButton[lang]}
+							</button>
 						</div>
 					</div>
 				</div>

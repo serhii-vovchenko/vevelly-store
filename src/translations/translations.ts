@@ -13,6 +13,7 @@ export const mainPage = {
 	bestsellers: { en: 'Bestsellers', ua: 'Бестселери' },
 	watchForHim: { en: 'Watch for him', ua: 'Годинники для нього' },
 	readMore: { en: 'Read more', ua: 'Читати більше' },
+	giftButton: { en: 'Choose a gift card', ua: 'Вибрати подарункову картку' },
 	seeAll: { en: 'See all', ua: 'Переглянути всі' },
 	email: { en: 'Email', ua: 'Електронна пошта' },
 	subscribe: { en: 'Subscribe', ua: 'Підписатися' },
@@ -54,7 +55,7 @@ export const footer = {
 	info: { en: 'Info', ua: 'Інформація' },
 	paymentAndDelivery: { en: 'Payment and delivery', ua: 'Оплата і доставка' },
 	exchangeAndReturn: { en: 'Exchange and return', ua: 'Обмін і повернення' },
-	careRecommendation: { en: 'Care Recommendation', ua: 'Рекомндації по догляду' },
+	careRecommendation: { en: 'Care Recommendation', ua: 'Рекомендації по догляду' },
 	contacts: { en: 'Contacts', ua: 'Контакти' },
 	weekDay: { en: '09:00 - 20:00 Mon-Sun', ua: '09:00 - 20:00 Пн-Нд' },
 };
