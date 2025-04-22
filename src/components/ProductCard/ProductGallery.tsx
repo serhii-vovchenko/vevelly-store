@@ -12,7 +12,7 @@ const ProductGallery = () => {
 
 	return (
 		<div className="w-[683px] h-[424px] flex gap-5">
-			<ul className="flex flex-col gap-5 overflow-y-auto scrollbar-hide">
+			<ul className="flex flex-col gap-5 overflow-y-auto scrollbar-hide w-[167px]">
 				{images?.map((item, index) => {
 					return (
 						<li
