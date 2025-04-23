@@ -1,30 +1,26 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectLanguage } from '../../../redux/language/selectors';
+
+import { delivery as t } from '../../../translations/translations';
 
 const Delivery = () => {
+	const lang = useSelector(selectLanguage);
+
 	return (
 		<div className="flex flex-col gap-5">
-			<p className="text-lg text-[#0D0C0C] font-thin leading-6">
-				Orders are delivered within 1-3 days
-			</p>
+			<p className="text-lg text-[#0D0C0C] font-thin leading-6">{t.deliveryTime[lang]}</p>
 			<div>
 				<p className="text-lg text-[#0D0C0C] font-medium leading-6 !mb-0.5">
-					Choose a convenient delivery method for you:
+					{t.deliveryListTitle[lang]}
 				</p>
 				<ul className="!list-disc !pl-6">
-					<li className="text-lg text-[#0D0C0C] font-thin leading-6">
-						Delivery to a Nova Poshta post office from $2,7
-					</li>
-					<li className="text-lg text-[#0D0C0C] font-thin leading-6">
-						Delivery to a Nova Poshta branch from $2,7
-					</li>
-					<li className="text-lg text-[#0D0C0C] font-thin leading-6">
-						By courier service to a convenient address from $3,5
-					</li>
+					<li className="text-lg text-[#0D0C0C] font-thin leading-6">{t.deliveryItem1[lang]}</li>
+					<li className="text-lg text-[#0D0C0C] font-thin leading-6">{t.deliveryItem2[lang]}</li>
+					<li className="text-lg text-[#0D0C0C] font-thin leading-6">{t.deliveryItem3[lang]}</li>
 				</ul>
 			</div>
-			<p className="text-lg text-[#0D0C0C] font-thin leading-6">
-				Track your order anytime with the tracking link provided upon dispatch.
-			</p>
+			<p className="text-lg text-[#0D0C0C] font-thin leading-6">{t.deliveryTrack[lang]}</p>
 		</div>
 	);
 };

@@ -314,17 +314,17 @@ export const delivery = {
 		ua: 'Оберіть зручний спосіб доставки для вас',
 	},
 
-	deliveryFirstItem: {
+	deliveryItem1: {
 		en: 'Delivery to a Nova Poshta post office from $2,7',
 		ua: 'Доставка до відділення Нової Пошти від $2,7',
 	},
 
-	deliverySecondtItem: {
+	deliveryItem2: {
 		en: 'Delivery to a Nova Poshta branch from $2,7',
 		ua: 'Доставка до відділення Нової Пошти від $2,7',
 	},
 
-	deliveryLastItem: {
+	deliveryItem3: {
 		en: 'By courier service to a convenient address from $3,5',
 		ua: "Кур'єрською службою на зручну адресу від $3,5",
 	},
