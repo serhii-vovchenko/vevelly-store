@@ -1,44 +1,39 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectLanguage } from '../../../redux/language/selectors';
+import { returnAndPayment as t } from '../../../translations/translations';
 
 const Payment = () => {
+	const lang = useSelector(selectLanguage);
 	const subtitleStyle = 'text-lg text-[#0D0C0C] font-medium leading-6 !mb-0.5';
 	const textStile = 'text-lg text-[#0D0C0C] font-thin leading-6 text-justify ';
 
 	return (
 		<div className="flex gap-15 ">
 			<div>
-				<h3 className={subtitleStyle}>Return Policy:</h3>
+				<h3 className={subtitleStyle}>{`${t.policyTitle[lang]}:`}</h3>
 
 				<ul className="w-[464px] !list-disc !pl-6 flex flex-col gap-1">
-					<li className={textStile}>30-day hassle-free returns.</li>
-					<li className={textStile}>Item must be unworn and in original packaging.</li>
-					<li className={textStile}>
-						Refunds processed within 7 business days of receiving the returned item.
-					</li>
+					<li className={textStile}>{t.firstPolicyRow[lang]}</li>
+					<li className={textStile}>{t.secondPolicyRow[lang]}</li>
+					<li className={textStile}>{t.lastPolicyRow[lang]}</li>
 				</ul>
 			</div>
 
 			<ul className="flex flex-col gap-4 justify-between">
 				<li>
-					<h4 className={subtitleStyle}>Cash payment</h4>
-					<p className={textStile}>
-						You can pay for your order with cash. Payment is made upon receipt of the goods.There is
-						no commission for cash on delivery.
-					</p>
+					<h4 className={subtitleStyle}>{t.firstPaymentTitle[lang]}</h4>
+					<p className={textStile}>{t.firstPaymentDescription[lang]}</p>
 				</li>
 
 				<li>
-					<h4 className={subtitleStyle}>By Visa/Mastercard Card (3% discount)</h4>
-					<p className={textStile}>
-						You can pay for your order with a payment card. Payment is made on the website through
-						the Plata by MONO system or upon receipt of the order in the store or at the courier
-						service office.
-					</p>
+					<h4 className={subtitleStyle}>{t.secondPaymentTitle[lang]}</h4>
+					<p className={textStile}>{t.secondPaymentDescription[lang]}</p>
 				</li>
 
 				<li>
-					<h4 className={subtitleStyle}>Payment in parts (Monobank / Privatbank)</h4>
-					<p className={textStile}>You can pay for your order with installments for 4 months.</p>
+					<h4 className={subtitleStyle}>{t.lastPaymentTitle[lang]}</h4>
+					<p className={textStile}>{t.lastPaymentDescription[lang]}</p>
 				</li>
 			</ul>
 		</div>

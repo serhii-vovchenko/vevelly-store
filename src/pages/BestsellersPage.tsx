@@ -8,10 +8,15 @@ import Icon from '../components/Icon';
 import Layout from '../components/Layout/Layout';
 import { Bestseller } from '../seed/seed';
 import { Sorting } from '../components/Sorting';
+import { selectLanguage } from '../redux/language/selectors';
+import { useSelector } from 'react-redux';
+
+import { bestsellersPage as t } from '../translations/translations';
 
 const BestsellersPage = () => {
 	const [showFilter, setShowFilter] = useState(false);
 	const [showSorting, setShowSorting] = useState(false);
+	const lang = useSelector(selectLanguage);
 
 	const toggleFilter = () => {
 		setShowFilter(!showFilter);
@@ -23,17 +28,17 @@ const BestsellersPage = () => {
 				<Breadcrumbs className="mb-11" />
 			</Container>
 			<Container>
-				<h1>BestsellersPage</h1>
+				<h1>{t.title[lang]}</h1>
 				<div className="controls_wrap flex items-center justify-between relative mt-11.5">
 					<div className="filter_btn text-xl text-[#434141]">
 						<div className="flex items-center" onClick={toggleFilter}>
 							<Icon className="mr-2" name="filter" width={18} height={18} />
-							Filter
+							{t.filter[lang]}
 						</div>
 					</div>
 					<div className="sort_btn text-xl text-[#434141]">
 						<div className="flex items-center" onClick={() => setShowSorting(!showSorting)}>
-							Sort
+							{t.sort[lang]}
 							<Icon className="ml-2" name="down" width={18} height={18} />
 						</div>
 					</div>

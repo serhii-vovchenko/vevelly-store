@@ -7,18 +7,21 @@ import {
 	productSelector,
 	subproductsSelector,
 } from '../../redux/product/selectors';
+import { selectLanguage } from '../../redux/language/selectors';
+import { productInfo as t } from '../../translations/translations';
 
 const ProductInfo = () => {
 	const product = useSelector(productSelector);
 	const subproducts = useSelector(subproductsSelector);
 	const currentSize = useSelector(currentSizeSelector);
+	const lang = useSelector(selectLanguage);
 
 	return (
 		<div className="flex flex-col gap-5 justify-between">
 			<div className="flex flex-col gap-2 ">
 				<h1 className="!text-3xl font-medium leading-8 w-full">{product?.name}</h1>
 				<p className="text-[18px] font-light leading-6">{product?.design}</p>
-				<p className="text-[18px] font-light leading-6">{`SKU: ${product?.sku}`}</p>
+				<p className="text-[18px] font-light leading-6">{`${t.sku[lang]}: ${product?.sku}`}</p>
 			</div>
 			<MetalColorSwitcher />
 			<SizeComponent />
@@ -40,11 +43,11 @@ const ProductInfo = () => {
 			</div>
 
 			<Button type="button" variant="primary">
-				Add to bag
+				{t.addToBag[lang]}
 			</Button>
 
 			<Button type="button" variant="secondary">
-				Add to favorites
+				{t.addToFavorites[lang]}
 			</Button>
 		</div>
 	);

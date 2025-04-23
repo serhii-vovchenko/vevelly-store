@@ -5,9 +5,12 @@ import { currentMetalColorSelector, materialsSelector } from '../../redux/produc
 import { useDispatch } from 'react-redux';
 import { handleCurrentMetalColor } from '../../redux/product/slice';
 import { AppDispatch } from '../../redux/store';
+import { selectLanguage } from '../../redux/language/selectors';
+import { productInfo as t } from '../../translations/translations';
 
 const MetalColorSwitcher = () => {
 	const [isOpen, setIsOpen] = useState(false);
+	const lang = useSelector(selectLanguage);
 	const dispatch: AppDispatch = useDispatch();
 
 	const materials = useSelector(materialsSelector);
@@ -19,7 +22,7 @@ const MetalColorSwitcher = () => {
 
 	return (
 		<div className="flex gap-2.5 items-center">
-			<p className="text-lg font-medium leading-6 text-[#0D0C0C]">Metal color:</p>
+			<p className="text-lg font-medium leading-6 text-[#0D0C0C]">{t.metalColor[lang]}:</p>
 
 			<div className="relative w-28">
 				<button

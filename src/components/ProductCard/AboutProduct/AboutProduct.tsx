@@ -3,9 +3,14 @@ import Description from './Description';
 import Payment from './Payment';
 import Delivery from './Delivery';
 import Recommendation from './Recommendation';
+import { selectLanguage } from '../../../redux/language/selectors';
+import { useSelector } from 'react-redux';
+
+import { aboutProduct as t } from '../../../translations/translations';
 
 const AboutProduct = () => {
 	const [activeTab, setActiveTab] = useState<string>('description');
+	const lang = useSelector(selectLanguage);
 
 	const tabClass =
 		'p-2.5 w-full font-medium text-2xl leading-8 text-[#0D0C0C] border-r border-b border-r-[#D6E8EE] border-b-[#D6E8EE] cursor-pointer';
@@ -22,25 +27,25 @@ const AboutProduct = () => {
 					onClick={() => handleActiveTab('description')}
 					className={`${tabClass} ${activeTab === 'description' ? activeTabClass : ''}`}
 				>
-					Description
+					{t.descriptionTab[lang]}
 				</li>
 				<li
 					onClick={() => handleActiveTab('payment')}
 					className={`${tabClass} ${activeTab === 'payment' ? activeTabClass : ''}`}
 				>
-					Payment & Return
+					{t.paymentAndReturnTab[lang]}
 				</li>
 				<li
 					onClick={() => handleActiveTab('delivery')}
 					className={`${tabClass} ${activeTab === 'delivery' ? activeTabClass : ''}`}
 				>
-					Delivery
+					{t.deliveryTab[lang]}
 				</li>
 				<li
 					onClick={() => handleActiveTab('recommendation')}
 					className={`${tabClass} ${activeTab === 'recommendation' ? activeTabClass : ''}`}
 				>
-					Care Recommendation
+					{t.careRecommendationTab[lang]}
 				</li>
 			</ul>
 			{activeTab === 'description' && <Description />}

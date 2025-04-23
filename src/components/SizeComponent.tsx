@@ -4,10 +4,13 @@ import { currentSizeSelector, subproductsSelector } from '../redux/product/selec
 import { AppDispatch } from '../redux/store';
 import { useDispatch } from 'react-redux';
 import { handleCurrentSize } from '../redux/product/slice';
+import { selectLanguage } from '../redux/language/selectors';
+import { productInfo as t } from '../translations/translations';
 
 const SizeComponent = () => {
 	const subproducts = useSelector(subproductsSelector);
 	const currentSize = useSelector(currentSizeSelector);
+	const lang = useSelector(selectLanguage);
 	const dispatch: AppDispatch = useDispatch();
 
 	const allSizes = subproducts?.map(item => {
@@ -20,7 +23,7 @@ const SizeComponent = () => {
 
 	return (
 		<div className="w-[372px]">
-			<p className="text-lg text-[#0D0C0C] font-medium leading-6">Size</p>
+			<p className="text-lg text-[#0D0C0C] font-medium leading-6">{t.size[lang]}</p>
 			<div className="flex gap-3 flex-wrap mt-2.5">
 				{allSizes?.map((item, index) => {
 					// const outOfStock = !items[item] ? 'text-[#C0C0C0] !cursor-not-allowed' : '';
