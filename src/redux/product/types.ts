@@ -48,7 +48,7 @@ export interface Product {
 	ean_13: string | null;
 	sku: string;
 	article: string;
-	statuses: number[];
+	statuses: string[];
 	collection: string | null;
 	occasions: any[];
 	subproducts: Subproducts[];
