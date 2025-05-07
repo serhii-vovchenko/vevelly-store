@@ -1,15 +1,15 @@
 import clsx from 'clsx';
-import React, { useEffect } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { selectLanguage } from '../../redux/language/selectors';
 import { useSearchStore } from '../../redux/search/useSearchStore';
+import { header as t } from '../../translations/translations';
 import { Basket } from '../Basket/Basket';
 import { Container } from '../Container/Container';
 import Icon from '../Icon';
 import { Menu } from '../Menu/Menu';
 import { Search } from './Search';
 import { Topline } from './Topline';
-import { selectLanguage } from '../../redux/language/selectors';
-import { useSelector } from 'react-redux';
-import { header as t } from '../../translations/translations';
 
 const Header = () => {
 	const { isSearchVisible, toggleSearchVisibility } = useSearchStore();
@@ -41,7 +41,7 @@ const Header = () => {
 							'flex items-center gap-2 text-2xl leading-8 text-[#0d0c0c]'
 						)}
 					>
-						VEVELLY
+						<a href="/">VEVELLY</a>
 					</div>
 					<div className="flex items-center justify-between gap-5">
 						<div className="flex items-center relative" onClick={toggleSearchVisibility}>

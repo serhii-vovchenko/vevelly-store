@@ -9,9 +9,10 @@ import { mainPage as t } from '../../translations/translations';
 interface Props {
 	title: string;
 	cards: CartItemType[];
+	see_all_link?: string;
 }
 
-export const HomeBlock: React.FC<Props> = ({ title, cards }) => {
+export const HomeBlock: React.FC<Props> = ({ title, cards, see_all_link }) => {
 	const lang = useSelector(selectLanguage);
 
 	return (
@@ -21,7 +22,9 @@ export const HomeBlock: React.FC<Props> = ({ title, cards }) => {
 					<div className="title text-[46px] uppercase font-medium leading-15 text-[#0D0C0C] mb-4">
 						{title}
 					</div>
-					<div className="text-lg font-light leading-6 text-[#0d0c0c]">{t.seeAll[lang]}</div>
+					<div className="text-lg font-light leading-6 text-[#0d0c0c] hover:underline">
+						<a href={see_all_link || '#'}>{t.seeAll[lang]}</a>
+					</div>
 				</div>
 			</Container>
 			<Container>
